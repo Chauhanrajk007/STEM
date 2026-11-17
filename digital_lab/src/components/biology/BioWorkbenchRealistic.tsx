@@ -61,7 +61,7 @@ export const BioWorkbenchRealistic: React.FC<BioWorkbenchRealisticProps> = ({ on
       {/* Photorealistic Generated Biology Laboratory Workbench Image */}
       <img
         ref={imageRef}
-        src="/assets/bio_workbench_realistic.jpg"
+        src="/digitallab/assets/bio_workbench_realistic.jpg"
         alt="Photorealistic Futuristic Biology Laboratory Workbench Table"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform will-change-transform scale-[1.02]"
       />

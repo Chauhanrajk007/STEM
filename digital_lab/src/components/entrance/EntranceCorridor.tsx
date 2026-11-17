@@ -129,7 +129,7 @@ export const EntranceCorridor: React.FC<EntranceCorridorProps> = ({ onEnterLab }
       {/* Authentic Futuristic Three Doors Background Image matching uploaded reference */}
       <img
         ref={imageRef}
-        src="/assets/futuristic_doors.jpg"
+        src="/digitallab/assets/futuristic_doors.jpg"
         alt="Futuristic Laboratory Blast Doors"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform will-change-transform"
       />

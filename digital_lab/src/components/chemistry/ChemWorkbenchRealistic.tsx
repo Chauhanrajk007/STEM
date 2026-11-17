@@ -61,7 +61,7 @@ export const ChemWorkbenchRealistic: React.FC<ChemWorkbenchRealisticProps> = ({ 
       {/* Photorealistic Generated Chemistry Laboratory Workbench Image */}
       <img
         ref={imageRef}
-        src="/assets/chem_workbench_realistic.jpg"
+        src="/digitallab/assets/chem_workbench_realistic.jpg"
         alt="Photorealistic Futuristic Chemistry Laboratory Workbench Table"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform will-change-transform scale-[1.02]"
       />

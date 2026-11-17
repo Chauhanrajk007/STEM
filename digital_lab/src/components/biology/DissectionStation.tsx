@@ -37,9 +37,9 @@ export const DissectionStation: React.FC = () => {
       id: 0,
       name: 'Layer 1: Peeling Sepals & Petals',
       friendlyPrompt: 'Take your scalpel and drag down the line to gently slice and peel open the flower petals!',
-      baseInnerImg: '/assets/flower_stage2.jpg', // Revealed inside: staminal column
-      outerLeftImg: '/assets/flower_stage1.jpg',
-      outerRightImg: '/assets/flower_stage1.jpg',
+      baseInnerImg: '/digitallab/assets/flower_stage2.jpg', // Revealed inside: staminal column
+      outerLeftImg: '/digitallab/assets/flower_stage1.jpg',
+      outerRightImg: '/digitallab/assets/flower_stage1.jpg',
       revealName: 'Golden-Dusted Staminal Column & Velvet Stigma',
       organs: ['epicalyx', 'calyx', 'petals', 'pedicel'],
       nextActionText: 'Next Step: Slit Open the Staminal Tube →',
@@ -48,9 +48,9 @@ export const DissectionStation: React.FC = () => {
       id: 1,
       name: 'Layer 2: Splitting the Staminal Column',
       friendlyPrompt: 'Now gently slice down the yellow tube to peel it open and find the secret white style hidden inside!',
-      baseInnerImg: '/assets/flower_stage3.jpg', // Revealed inside: style and ovary
-      outerLeftImg: '/assets/flower_stage2.jpg',
-      outerRightImg: '/assets/flower_stage2.jpg',
+      baseInnerImg: '/digitallab/assets/flower_stage3.jpg', // Revealed inside: style and ovary
+      outerLeftImg: '/digitallab/assets/flower_stage2.jpg',
+      outerRightImg: '/digitallab/assets/flower_stage2.jpg',
       revealName: 'The Long White Style & Ovary Chamber',
       organs: ['stigma', 'anthers', 'filaments', 'staminal_tube'],
       nextActionText: 'Next Step: Slice Open the Ovary Chamber →',
@@ -59,9 +59,9 @@ export const DissectionStation: React.FC = () => {
       id: 2,
       name: 'Layer 3: Slicing the Baby Seed Chamber (Ovary)',
       friendlyPrompt: 'Make one clean cut right through the green ovary at the base to open the 5 rooms holding baby ovules!',
-      baseInnerImg: '/assets/flower_stage3.jpg',
-      outerLeftImg: '/assets/flower_stage3.jpg',
-      outerRightImg: '/assets/flower_stage3.jpg',
+      baseInnerImg: '/digitallab/assets/flower_stage3.jpg',
+      outerLeftImg: '/digitallab/assets/flower_stage3.jpg',
+      outerRightImg: '/digitallab/assets/flower_stage3.jpg',
       revealName: '5 Chambers with Glistening White Ovules (Baby Seeds)',
       organs: ['ovary_wall', 'locules_ovules', 'style_tube', 'receptacle'],
       nextActionText: 'Complete Dissection! Celebrate Discovery 🎉',

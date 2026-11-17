@@ -117,7 +117,7 @@ export const LabHUD: React.FC<LabHUDProps> = ({
           title="Consult Mecha Senku (Kingdom of Science AI)"
         >
           <div className="w-6 h-6 rounded-full overflow-hidden border border-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.5)] bg-stone-900/80 p-0.5">
-            <img src="/assets/mecha_senku.png" alt="Senku" className="w-full h-full object-contain" />
+            <img src="/digitallab/assets/mecha_senku.png" alt="Senku" className="w-full h-full object-contain" />
           </div>
           <span className="font-bold flex items-center gap-1 font-serif">
             <MessageSquare className="w-3.5 h-3.5 text-emerald-400" /> Ask Senku (AI)

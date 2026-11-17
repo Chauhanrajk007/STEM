@@ -52,7 +52,7 @@ export const SenkuAiModal: React.FC<SenkuAiModalProps> = ({ isOpen, onClose }) =
         <div className="px-4 py-3 bg-stone-900/90 border-b border-stone-800 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.5)] bg-stone-900/90 p-1 shrink-0">
-              <img src="/assets/mecha_senku.png" alt="Mecha Senku" className="w-full h-full object-contain" />
+              <img src="/digitallab/assets/mecha_senku.png" alt="Mecha Senku" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export const SenkuAiModal: React.FC<SenkuAiModalProps> = ({ isOpen, onClose }) =
             >
               {msg.sender === 'senku' && (
                 <div className="w-7 h-7 rounded-full overflow-hidden border border-emerald-400 shrink-0 mt-0.5 bg-stone-900/90 p-0.5">
-                  <img src="/assets/mecha_senku.png" alt="Senku" className="w-full h-full object-contain" />
+                  <img src="/digitallab/assets/mecha_senku.png" alt="Senku" className="w-full h-full object-contain" />
                 </div>
               )}
               <div

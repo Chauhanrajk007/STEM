@@ -480,7 +480,7 @@ export const ChemWorkbench3D: React.FC<ChemWorkbench3DProps> = ({ onSelectStatio
       
       {/* Authentic Futuristic Chemistry Laboratory Backdrop matching the green blast door theme */}
       <img
-        src="/assets/futuristic_chem_lab.jpg"
+        src="/digitallab/assets/futuristic_chem_lab.jpg"
         alt="Futuristic Chemistry Laboratory Room"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 brightness-90 filter blur-[0.5px]"
       />

@@ -52,7 +52,7 @@ export const SenkuGuide: React.FC<SenkuGuideProps> = ({
           {/* Mecha Senku Character Sprite - High-res, Prominent, Cleanly Alongside (NEVER covering text) */}
           <div className="shrink-0 select-none pointer-events-none drop-shadow-[0_16px_40px_rgba(0,0,0,0.95)]">
             <img
-              src="/assets/mecha_senku.png"
+              src="/digitallab/assets/mecha_senku.png"
               alt="Mecha Senku"
               className="w-36 sm:w-52 md:w-60 h-auto max-h-[300px] sm:max-h-[400px] object-contain object-bottom"
             />

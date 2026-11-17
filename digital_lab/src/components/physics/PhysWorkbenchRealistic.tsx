@@ -61,7 +61,7 @@ export const PhysWorkbenchRealistic: React.FC<PhysWorkbenchRealisticProps> = ({ 
       {/* Photorealistic Generated Physics Laboratory Workbench Image */}
       <img
         ref={imageRef}
-        src="/assets/phys_workbench_realistic.jpg"
+        src="/digitallab/assets/phys_workbench_realistic.jpg"
         alt="Photorealistic Futuristic Physics Laboratory Workbench Table"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform will-change-transform scale-[1.02]"
       />

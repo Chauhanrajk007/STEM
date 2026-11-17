@@ -278,7 +278,7 @@ export const ChemistryLab: React.FC = () => {
       
       {/* Authentic Laboratory Background */}
       <img
-        src="/assets/futuristic_chem_lab.jpg"
+        src="/digitallab/assets/futuristic_chem_lab.jpg"
         alt="Realistic Chemistry Laboratory Workbench"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 brightness-90"
       />

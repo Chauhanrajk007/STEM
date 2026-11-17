@@ -94,7 +94,7 @@ export const BiologyLab: React.FC = () => {
     <div className="relative w-full h-full flex flex-col pt-20 px-4 sm:px-6 pb-4 overflow-hidden bg-slate-950 font-mono">
       {/* Authentic Futuristic Biology Laboratory Background matching purple doors */}
       <img
-        src="/assets/futuristic_bio_lab.jpg"
+        src="/digitallab/assets/futuristic_bio_lab.jpg"
         alt="Futuristic Botanical and Biology Laboratory"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 brightness-85"
       />

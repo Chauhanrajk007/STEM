@@ -113,7 +113,7 @@ export const PhysicsLab: React.FC = () => {
     <div className="relative w-full h-full flex flex-col pt-20 px-4 sm:px-6 pb-4 overflow-hidden bg-slate-950">
       {/* Authentic Physics Workshop Background */}
       <img
-        src="/assets/futuristic_phys_lab.jpg"
+        src="/digitallab/assets/futuristic_phys_lab.jpg"
         alt="Physics Workshop and Observatory"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 brightness-85"
       />
