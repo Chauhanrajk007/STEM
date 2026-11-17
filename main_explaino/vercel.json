@@ -1,5 +1,16 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/scratchpad",
+      "destination": "/scratchpad/index.html"
+    },
+    {
+      "source": "/digitallab",
+      "destination": "/digitallab/index.html"
+    },
+    {
+      "source": "/((?!scratchpad|digitallab|assets|favicon|icons).*)",
+      "destination": "/index.html"
+    }
   ]
 }
