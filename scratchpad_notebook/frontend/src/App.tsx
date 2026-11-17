@@ -328,24 +328,110 @@ function App() {
       }
 
       // Execute Universal Capability Orchestrator via FastAPI
-      const orchRes = await fetch('/api/orchestrate/process', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          raw_content: textToSolve || 'handwritten_canvas',
-          input_type: shouldSolveCanvas ? 'handwriting' : 'typed',
-          strokes: shouldSolveCanvas ? strokes : undefined,
-          image_b64: shouldSolveCanvas ? imageB64 : undefined,
-          recognized_latex: textToSolve || undefined,
-          profile: profile
-        })
-      });
+      const apiBase = import.meta.env.VITE_MATH_BACKEND_URL || '';
+      let orchData: UnifiedMathematicalRepresentation | null = null;
 
-      if (!orchRes.ok) {
-        throw new Error(`Orchestration failed with status ${orchRes.status}`);
+      try {
+        const orchRes = await fetch(`${apiBase}/api/orchestrate/process`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            raw_content: textToSolve || 'handwritten_canvas',
+            input_type: shouldSolveCanvas ? 'handwriting' : 'typed',
+            strokes: shouldSolveCanvas ? strokes : undefined,
+            image_b64: shouldSolveCanvas ? imageB64 : undefined,
+            recognized_latex: textToSolve || undefined,
+            profile: profile
+          })
+        });
+
+        if (orchRes.ok) {
+          orchData = await orchRes.json();
+        } else {
+          console.warn(`FastAPI backend responded with status ${orchRes.status}, switching to AI fallback solver`);
+        }
+      } catch (e) {
+        console.warn('Backend unavailable, switching to AI fallback solver:', e);
       }
 
-      const orchData: UnifiedMathematicalRepresentation = await orchRes.json();
+      // If backend is offline or returns 405 on static Vercel, solve via Groq AI
+      if (!orchData) {
+        const groqKey = import.meta.env.VITE_GROQ_API_KEY || "";
+        if (groqKey) {
+          try {
+            const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${groqKey}`
+              },
+              body: JSON.stringify({
+                model: "llama-3.3-70b-versatile",
+                response_format: { type: "json_object" },
+                messages: [
+                  {
+                    role: "system",
+                    content: `You are an expert mathematical step solver. Solve the user's math expression step-by-step.
+Output ONLY valid JSON matching this schema:
+{
+  "topic": "algebra",
+  "steps": [
+    {
+      "step_number": 1,
+      "operation": "description of step",
+      "latex": "LaTeX of equation after step",
+      "explanation": "Clear explanation",
+      "why": "Reason for step"
+    }
+  ],
+  "final_answer": "LaTeX format of final result"
+}`
+                  },
+                  {
+                    role: "user",
+                    content: `Solve this math equation or problem step-by-step: ${textToSolve}`
+                  }
+                ],
+                temperature: 0.1
+              })
+            });
+
+            if (groqRes.ok) {
+              const aiJson = await groqRes.json();
+              const parsed = JSON.parse(aiJson.choices?.[0]?.message?.content || '{}');
+              orchData = {
+                umr_version: "1.0",
+                raw_input: textToSolve,
+                input_type: "typed",
+                latex: textToSolve,
+                understanding: {
+                  topic: parsed.topic || "algebra",
+                  subtopic: "step_solution",
+                  is_ambiguous: false
+                },
+                solution: {
+                  method: "algebraic_step_solver",
+                  steps: (parsed.steps || []).map((s: any, idx: number) => ({
+                    step_number: s.step_number || idx + 1,
+                    operation: s.operation || `Step ${idx + 1}`,
+                    latex: s.latex || s.operation,
+                    explanation: s.explanation || s.operation,
+                    why: s.why || ""
+                  })),
+                  final_answer: parsed.final_answer || ""
+                }
+              } as any;
+            }
+          } catch (groqErr) {
+            console.error("Groq fallback solver failed:", groqErr);
+          }
+        }
+      }
+
+      if (!orchData) {
+        throw new Error("Math solver is currently starting or offline. Please verify the backend is running.");
+      }
+
       setUmr(orchData);
 
       // Check if pedagogical clarification was requested
